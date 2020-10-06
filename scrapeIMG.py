@@ -13,7 +13,7 @@ for cada in baselist:
     url_cat = cada['href']
     cate = BeautifulSoup(requests.get(url_cat).text)
     num = cate.find('span', class_='pages').text.split(' ')[-1]
-    for i in range(1, 2):
+    for i in range(1, int(num)):
         url_temp = url_cat + '/page/'+str(i)
         catPage = BeautifulSoup(requests.get(url_temp).text)
         lista = catPage.findAll('article', class_='grid_4 postlistbox')
